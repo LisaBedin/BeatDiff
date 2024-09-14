@@ -1,0 +1,11 @@
+name: aggresive # Name of experiment (prefix of experiment name)
+ckpt_iter: max
+iters_per_ckpt: 10
+iters_per_logging: 2
+n_iters: 1800
+learning_rate_final: 1e-4
+learning_rate_start: 1e-6
+n_transition_steps: 1e5
+batch_size_per_gpu: 32
+decay: 0.999
+save_folder: /mnt/data/gabriel/ecg_inpainting/models/ecg_template

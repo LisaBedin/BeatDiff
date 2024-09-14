@@ -1,0 +1,9 @@
+name: 'AAE'
+model_type: 'AE'
+TCN_opt: false
+denoising: false
+adversarial: true
+conditional: false
+kl: 0.001
+noise_type: 'bw'
+# checkpoint_path: '/mnt/Reseau/Signal/lisa/ecg_results/models'  # '/mnt/data/lisa/ecg_results/models' # '/mnt/data/lisa/ecg_results'

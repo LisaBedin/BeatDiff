@@ -1,0 +1,10 @@
+name: bw
+f_c_min: 0 #0
+f_c_max: 1 # 0.7
+l1reg: 10 # 0.1
+l2reg: 10
+J: 100
+n_leads: 9
+amplitude: 1
+T: 20
+N: 50

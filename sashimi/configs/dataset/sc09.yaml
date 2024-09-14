@@ -1,0 +1,4 @@
+_name_: sc09
+data_path: /mnt/data/lisa/sc09
+segment_length: 16000
+sampling_rate: 16000

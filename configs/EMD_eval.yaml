@@ -1,0 +1,4 @@
+defaults:
+  - paths: beat_global_norm_uncond
+
+debug: False

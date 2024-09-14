@@ -1,0 +1,15 @@
+_name_: sashimi
+unconditional: true
+in_channels: 9
+out_channels: 9
+diffusion_step_embed_dim_in: 128
+diffusion_step_embed_dim_mid: 512
+diffusion_step_embed_dim_out: 512
+unet: true
+scheduler: false
+d_model:  64  #  128
+n_layers: 4  # 6   # as in the wandb
+pool: [1, 2, 2]  # [4, 4]
+expand: 2
+ff: 2
+L: ${dataset.segment_length} # Truncates infinite kernel to length of training inputs

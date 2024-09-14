@@ -1,0 +1,14 @@
+hydra:
+  run:
+    dir: ./outputs/debug # exp1/${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+wandb:
+  mode: online # Pass in 'wandb.mode=online' to turn on wandb logging
+  project: baseline_ekgan
+  entity: phdgabriel
+  id: null # Set to string to resume logging from run
+  job_type: training
+
+defaults:
+  - ekgan: ekgan_leadI
+  - paths: beat_no_norm

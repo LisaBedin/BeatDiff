@@ -1,0 +1,9 @@
+_name_: "physionet"
+name: "physionet"
+database_path: '/mnt/data/lisa/physionet.org/ecg_long_term'
+categories_to_filter: ["NSR"]  # , "SB", "STach", "SA"]
+normalized: 'no'  # 'per_lead'  # global
+segment_length: 1024  # 2048  #   #  2048  # 2500
+long_term: true
+all_limb: false
+noise_path: ''  # /mnt/Reseau/Signal/lisa/ECG_data/mit-bih-noise-stress-test-database-1.0.0/bw'

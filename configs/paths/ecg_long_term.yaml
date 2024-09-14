@@ -1,0 +1,10 @@
+name: 'ecg_long_term'
+baseline_folder: 'results/models'  # '/mnt/Reseau/Signal/lisa/ecg_results/models'
+results_path: '/mnt/data/lisa/ecg_results/ecg_long_term'
+checkpoint: '/mnt/data/lisa/ecg_results/models/ecg_diffusion/2024-07-18-15-57-10'  # '/mnt/data/gabriel/ecg_inpainting/models/ecg_template/template_ecg_conditional/baseline_no_norm'
+db_path: '/mnt/data/lisa/physionet.org/ecg_long_term'
+noise_path: '/mnt/Reseau/Signal/lisa/ECG_data/mit-bih-noise-stress-test-database-1.0.0'
+qt_path: '/mnt/data/gabriel/LQTS'
+eval:
+  type: inpainting
+  folder_name: 'inpainting_samples_K20'

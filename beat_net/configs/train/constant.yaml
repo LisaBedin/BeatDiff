@@ -1,0 +1,11 @@
+name: lr_decrease_2 # Name of experiment (prefix of experiment name)
+ckpt_iter: max
+iters_per_ckpt: 10
+iters_per_logging: 2
+n_iters: 900
+learning_rate_final: 1e-4
+learning_rate_start: 1e-4
+n_transition_steps: 1
+batch_size_per_gpu: 128
+decay: 0.9999
+save_folder: /mnt/data/gabriel/ecg_inpainting/models/ecg_template

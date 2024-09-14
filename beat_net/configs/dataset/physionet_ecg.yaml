@@ -1,0 +1,4 @@
+name: physionet_ecg
+database_path: /mnt/data/gabriel/physionet.org/beats_db_more_meta_no_zeros
+categories_to_filter: ['RBBB'] #  ["NSR", "SB", "STach", "SA"]
+normalized: 'no'  # 'per_lead'  # global

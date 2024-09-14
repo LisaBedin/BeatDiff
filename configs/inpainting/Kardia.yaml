@@ -1,0 +1,11 @@
+name: Kardia
+QRS_only: false
+ST_only: false
+all_leads: false
+start_lead: 9  # 3
+missing_leads: [3, 5, 7, 8]
+T: 20
+N: 50
+labels: ['NSR'] # ['NSR', 'SB', 'STach', 'SA']  #  ['LBBB']  #['NSR', 'SB', 'STach', 'SA']  # ['LQTS_clean'] # ['NSR', 'SB', 'STach', 'SA'] # ['LQTS_clean'] # LQTS_clean, MI
+ekgan_name: 'Ekgan_leadI'
+do_denoise: False

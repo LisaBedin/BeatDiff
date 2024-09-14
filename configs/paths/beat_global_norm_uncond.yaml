@@ -1,0 +1,10 @@
+name: 'beat_global_norm_uncond'
+baseline_folder: '/mnt/Reseau/Signal/lisa/ecg_results/models'
+results_path: '/mnt/data/lisa/ecg_results/beat_global_norm'
+checkpoint: '/mnt/data/gabriel/ecg_inpainting/models/ecg_template/template_ecg_conditional/baseline_global_norm_uncond'
+db_path: '/mnt/data/gabriel/physionet.org/beats_db_more_meta_no_zeros'
+noise_path: '/mnt/Reseau/Signal/lisa/ECG_data/mit-bih-noise-stress-test-database-1.0.0'
+qt_path: '/mnt/data/gabriel/LQTS'
+eval:
+  type: inpainting
+  folder_name: 'inpainting_samples_K20'

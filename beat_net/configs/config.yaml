@@ -1,0 +1,31 @@
+hydra:
+  run:
+    dir: /mnt/data/lisa/ecg_results/models/ecg_diffusion/${now:%Y-%m-%d-%H-%M-%S}
+  sweep:
+    dir: /mnt/data/lisa/ecg_results/models/ecg_diffusion/${now:%Y-%m-%d-%H-%M-%S}
+    subdir: ${hydra.job.num}
+
+defaults:
+  - _self_
+  - model: baseline
+  - dataset: physionet_ecg  # _long_term  # physionet_ecg
+  - train: baseline_long_term
+  - diffusion: standard
+
+
+generate:
+  ckpt_iter: max # Which checkpoint to use; assign a number or "max". Is ignored when sampling during training
+  n_samples: 4 # Number of utterances to be generated (per GPU)
+  rho: 7
+  T: 20  # this is only for visualization purpose, not used at training time
+
+distributed:
+  dist_backend: nccl
+  dist_url: tcp://localhost:54321
+
+wandb:
+  mode: online # Pass in 'wandb.mode=online' to turn on wandb logging
+  project: long_term
+  entity: phdlisa  # phdgabriel
+  id: null # Set to string to resume logging from run
+  job_type: training

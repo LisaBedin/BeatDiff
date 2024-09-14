@@ -1,0 +1,27 @@
+hydra:
+  run:
+    dir: ./outputs/debug # exp1/${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+T: 50
+N: 50
+leads: [0]
+normalization: 'no_norm'  # 'no_norm'  # per_lead
+n_beats: 20
+lead_type: 'flank'
+denoising:
+  do_denoise: false
+  f_c_min: 0 #0
+  f_c_max: 1 # 0.7
+  l1reg: 10 # 0.1
+  l2reg: 5
+  J: 100
+  amplitude: 1
+
+evaluate_inpainting: 'inpainting_no_norm_0_1_2_knee'  # l1reg10_l2reg5'  # _1_2_flank'  # 'inpainting_0'
+
+main_path: '/mnt/Reseau/Signal/lisa/AppleWatch'
+# data_folder: '/mnt/Reseau/Signal/lisa/Remi_Montre/processed_data'
+# results_path: '/mnt/Reseau/Signal/lisa/Remi_Montre/inpainting_results'
+baseline_folder: '/mnt/Reseau/Signal/lisa/ecg_results/models'
+checkpoint_path: '/mnt/data/gabriel/ecg_inpainting/models/ecg_template/template_ecg_conditional'  # /baseline_per_lead'
+

@@ -1,0 +1,10 @@
+_name_: "physionet_arrhythmia"
+name: "physionet_arrhythmia"
+database_path: '/mnt/data/lisa/physionet.org/AF'  # ecg_long_term'  #  '/mnt/data/lisa/physionet.org/arrhythmia'
+categories_to_filter: ["AF", "AFL"]  # , "SB", "STach", "SA"]
+normalized: 'no'  # 'per_lead'  # global
+segment_length: 1024  # 2048  #   #  2048  # 2500
+long_term: true
+all_limb: false
+training_class: 'Training_CV'
+noise_path: ''  # /mnt/Reseau/Signal/lisa/ECG_data/mit-bih-noise-stress-test-database-1.0.0/bw'

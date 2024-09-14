@@ -1,0 +1,6 @@
+name: physionet_ecg_long_term
+database_path: /mnt/data/lisa/physionet.org/centered_beats  # /mnt/data/lisa/physionet.org/ecg_long_term
+categories_to_filter: ["NSR"]  # , "SB", "STach", "SA"]
+normalized: 'no'  # 'per_lead'  # global
+segment_length: 512  # 2500
+long_term: true

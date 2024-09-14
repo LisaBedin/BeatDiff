@@ -1,0 +1,97 @@
+hydra:
+  run:
+    dir: ./outputs/debug # exp1/${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+wandb:
+  mode: online # Pass in 'wandb.mode=online' to turn on wandb logging
+  project: baseline
+  entity: phdgabriel
+  id: null # Set to string to resume logging from run
+  job_type: training
+
+inpainting:
+  # missing_leads: [1, 2, 3, 4, 5, 6, 7, 8]
+  QRS_only: false
+  ST_only: false
+  all_leads: false
+  start_lead: 1  # 3
+  T: 20
+  N: 50
+  labels: ['NSR'] # ['NSR', 'SB', 'STach', 'SA']  #  ['LBBB']  #['NSR', 'SB', 'STach', 'SA']  # ['LQTS_clean'] # ['NSR', 'SB', 'STach', 'SA'] # ['LQTS_clean'] # LQTS_clean, MI
+  model_path: '/mnt/data/gabriel/ecg_inpainting/models/ecg_template/template_ecg_conditional/baseline_no_norm'  # no_norm'  #
+
+denoising:
+  f_c_min: 0 #0
+  f_c_max: 1 # 0.7
+  l1reg: 1 # 0.1
+  l2reg: 1
+  J: 100
+  n_leads: 9
+  amplitude: 1
+  # noise_path: '/mnt/data/lisa/ecg-inpainting_samples_K20/Score-based-ECG-Denoising-main/data_test/'
+  noise_path: '/mnt/data/lisa/physionet.org/files/nstdb/1.0.0/bw'
+  #noise_type: 'BW'  # 'EM'
+  model_path: '/mnt/data/gabriel/ecg_inpainting/models/ecg_template/template_ecg_conditional/baseline_no_norm'  # no_norm'  #
+
+eval:
+  metric: 'R2_score'  # 'R2_score'  # mahanalobis_decay
+  agg_fun: 'median'  # median or mean
+  labels: [# 'LQTS_clean_qrs',
+           # 'LBBB', 'LBBB_qrs', 'LBBB_ST',
+           'MI', 'MI_qrs', 'MI_ST',
+           'LAD_qrs', 'LAD_ST',
+           'LAE', 'LAE_qrs', 'LAE_ST',
+           'LQRSV',  'LQRSV_qrs', 'LQRSV_ST',
+           'LQT', 'LQT_qrs', 'LQT_ST'] # LQTS_clean
+
+qt_path: '/mnt/data/gabriel/LQTS'
+baseline_folder: '/mnt/data/lisa/ecg_results/models'
+results_path: '/mnt/data/lisa/ecg_results/'
+checkpoint: '/mnt/data/gabriel/ecg_inpainting/models/ecg_template/template_ecg_conditional/baseline_global_norm'
+db_path: '/mnt/data/gabriel/physionet.org/beats_db_more_meta_no_zeros'
+
+wgan:
+  path: '/mnt/data/lisa/ecg_results/models/wgan'
+
+baseline:
+  model_type: 'AE'
+  TCN_opt: false
+  denoising: true
+  adversarial: false
+  conditional: false
+  kl: 0.001
+  checkpoint_path: '/mnt/Reseau/Signal/lisa/ecg_results/models'  # '/mnt/data/lisa/ecg_results/models' # '/mnt/data/lisa/ecg_results'
+
+ekgan:
+  input_leads: [0]
+  all_limb: false
+  normalization: 'per_lead'
+
+mcg_diff:
+  n_samples: 100 # 150 # Total number of generated samples (per GPU)
+  n_samples_per_filter: 50 # Number of particles (per GPU)
+  n_condition_per_diseases: 2 # 25  # Number of patients (per GPU)
+  ekgan_model: ''  # '/mnt/data/lisa/ecg_results/Ekgan_0_1_2_sched/best_inference_generator.pth'
+  n_gpu: 1
+  setting: Sfinal # S1
+  # conditioning_pistes: [0, 1, 2]
+  labels:  ["NSR"] # , "SB", "STach", "SA"] # ['IRBBB', 'RBBB', 'LBBB'] # 'OldMI', 'MIs', 'LVH'] 'NSR', 'MI', 'SB', 'STach', 'SA']  #,
+  max_patients: 500 # -1
+  initial_seed: [0, 0]
+  rerun_data_path: '' # /mnt/data/lisa/ecg_results/evaluation/generated_ecg/nb_particles_exp1/2023-09-14/13-27-46/16_0_0'
+  results_path: '/mnt/data/lisa/ecg_results/anomaly_detection/global_norm'
+  EM:  # no EM: sigma_init=0, n_steps=1
+    sigma_init: 1  # initialisation of sigma_est for EM. no EM: EMM_sigma=0
+    n_steps: 10 # no EM: EM_steps=1
+
+# checkpoint: /mnt/data/gabriel/ecg_inpainting/models/ecg_template/template_ecg_conditional/baseline  # _uncond/0
+#results_path: /mnt/data/lisa/ecg_results/
+#/mnt/data/gabriel/ecg_inpainting/models/ecg_template/template_ecg_conditional/2023-09-20-20-18-21/0/
+#checkpoint: /mnt/data/gabriel/ecg_inpainting/models/ecg_template/template_ecg_conditional/2023-09-21-09-29-14/0
+
+eval_mcg_diff:
+  eval_path: '/mnt/data/lisa/ecg_results/Sfinal/EMinit1_EMsteps10_N50_0_0'
+  # eval_path: '/mnt/data/lisa/ecg_results/evaluation/generated_ecg/generation100modes'
+  qrs_only: false
+  dist_name: 'R2_score'  #'mahanalobis_mean_decay'  #'R2_score' # 'mahanalobis_mean_decay'  # 'L2_mean' # 'mahanalobis_max'
+  ood_condition: [0, 1, 2, 3, 4, 5, 6, 7, 8]

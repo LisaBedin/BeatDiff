@@ -1,0 +1,5 @@
+defaults:
+  - paths: beat_no_norm
+  - denoising: bw
+
+debug: False

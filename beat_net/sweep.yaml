@@ -1,0 +1,26 @@
+program: train.py
+method: grid
+metric:
+  goal: minimize
+  name: loss/CV
+parameters:
+  model.start_dim:
+    values: [128, 256, 512]
+  model.n_blocks:
+    values: [1, 2, 3]
+  model.n_resnet_per_block:
+    values: [1, 2, 3]
+  model.n_conv_per_resnet:
+    values: [2, 3]
+  model.n_conv_midblock:
+    values: [1, 2]
+  model.time_embedding_type:
+    values: [fourier, fixed]
+  model.use_time_positional:
+    values: [true, false]
+
+
+command:
+  - python
+  - ${program}
+  - ${args_no_hyphens}

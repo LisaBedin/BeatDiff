@@ -1,0 +1,7 @@
+_name_: "physionet_centered"
+name: "physionet_centered"
+
+database_path: '/mnt/data/lisa/physionet.org/centered_beats'
+normalized: 'no'  # 'per_lead'  # global
+all_limb: false
+segment_length: 512

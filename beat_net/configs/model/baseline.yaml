@@ -1,0 +1,11 @@
+name: baseline
+model_channels: 192
+num_blocks: 2
+channel_mult: [1,]
+channel_mult_emb: 2
+attn_resolutions: [88, 44, 22]
+seed: 0
+dropout_rate: 0.10
+use_f_training: true
+embbed_position_in_signal: true
+conditional: true

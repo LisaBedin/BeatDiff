@@ -1,0 +1,13 @@
+cmake
+pykeops
+opt_einsum
+einops
+tqdm
+soundfile
+wandb
+# pytorch-lightning
+numpy
+scipy
+omegaconf
+librosa
+hydra-core

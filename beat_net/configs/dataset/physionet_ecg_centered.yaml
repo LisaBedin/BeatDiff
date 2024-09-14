@@ -1,0 +1,4 @@
+name: physionet_ecg_centered
+database_path: /mnt/data/lisa/physionet.org/centered_beats  # /mnt/data/lisa/physionet.org/ecg_long_term
+normalized: 'no'  # 'per_lead'  # global
+segment_length: 512

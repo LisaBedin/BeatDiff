@@ -1,0 +1,11 @@
+_name_: 'ekgan_leadI'
+model_type: 'AE'
+TCN_opt: false
+denoising: false
+adversarial: true
+conditional: false
+kl: 0.001
+# checkpoint_path: '/mnt/Reseau/Signal/lisa/ecg_results/models'  # '/mnt/data/lisa/ecg_results/models' # '/mnt/data/lisa/ecg_results'
+input_leads: [0]
+all_limb: false  # 12 lead or 9 leads
+# normalization: 'no'

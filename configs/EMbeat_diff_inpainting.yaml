@@ -1,0 +1,6 @@
+defaults:
+  - paths: beat_no_norm
+  - denoising: simple  # not used if not inpainting_samples_K20.do_denoise
+  - inpainting: Kardia  # leadI
+
+debug: False
