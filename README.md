@@ -28,3 +28,14 @@
 * EM-beatdiff for reconstructing healthy heartbeats from leadI, limb leads, qrs, st-segment: ```python EMbeat_diff_inpainting.py --multirun inpainting=leadI,limbs,qrs,st paths.db_path=<path of preprocessed beats db> paths.results_path=<folder for storing results>```
 * for anomaly detection perform the inpatining on different heart conditions: ```python EMbeat_diff_inpainting.py --multirun inpainting.labels=['MI'],['LQTS'] inpainting=leadI,limbs,qrs,st paths.db_path=<path of preprocessed beats db> paths.results_path=<folder for storing results>```
 
+## Citation
+If you use this code, please cite the following
+```
+@article{bedin2024beatdiff,
+      title={Leveraging an ECG Beat Diffusion Model for Morphological Reconstruction from Indirect Signals}, 
+      author={Lisa Bedin and Gabriel Cardoso and Josselin Duchateau and Remi Dubois and Eric Moulines},
+      year={2024},
+      volume={37},
+      journal={Advances in Neural Information Processing Systems},
+}
+```
