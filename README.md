@@ -34,8 +34,8 @@ If you use this code, please cite the following
 @article{bedin2024beatdiff,
       title={Leveraging an ECG Beat Diffusion Model for Morphological Reconstruction from Indirect Signals}, 
       author={Lisa Bedin and Gabriel Cardoso and Josselin Duchateau and Remi Dubois and Eric Moulines},
-      year={2024},
-      volume={37},
       journal={Advances in Neural Information Processing Systems},
+      year={2024},
+      volume={37}
 }
 ```
